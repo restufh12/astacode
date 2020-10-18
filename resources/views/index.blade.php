@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Arsha Bootstrap Template - Index</title>
+  <title>Astacode</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -54,11 +54,12 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li class="d-block d-sm-none"><a href="{{ url('/login') }}">Login</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#about" class="get-started-btn scrollto">Login</a>
+      <a href="{{ url('/login') }}" class="get-started-btn scrollto d-none d-sm-block">Login</a>
 
     </div>
   </header><!-- End Header -->

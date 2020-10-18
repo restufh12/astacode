@@ -11,5 +11,10 @@
 |
 */
 
-Route::get('/backend','admin\DashboardController@index');
+// BACKEND
+Route::get('/dashboard','admin\DashboardController@index');
+Route::get('/login','admin\LoginController@index');
+Auth::routes(['register' => false]);
+
+// FRONTEND
 Route::get('/', 'HomeController@index');
