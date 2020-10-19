@@ -22,13 +22,15 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+					@csrf
+
 					<span class="login100-form-title p-b-48 text-center">
 						<img src="admin/login/images/logo.png" class="img-full">
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
+					<div class="wrap-input100 validate-input @error('email') alert-validate @enderror" data-validate = "Enter a valid email">
+						<input id="email" type="email" class="input100" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -36,18 +38,40 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input id="password" type="password" class="input100" name="password" autocomplete="current-password">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button type="submit" class="login100-form-btn">
 								Login
 							</button>
 						</div>
 					</div>
+
+					<div class="form-group row">
+                        <div class="col-md-12">
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link forgot-pass" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
+                        </div>
+                    </div>
 				</form>
 			</div>
 		</div>
