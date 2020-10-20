@@ -1,0 +1,10 @@
+/*!
+ * Simple Font Awesome Icon Picker 2.0
+ * http://howlthemes.com
+ *
+ * Originally written by (c) 2016-17 Aumkar Thakur
+ * Special Thanks To Deepak Kamat
+ * Licensed under the MIT License
+ * https://github.com/aumkarthakur/simple-fontawesome-iconpicker/blob/master/LICENSE
+ *
+ */.howl-iconpicker-outer{box-sizing: initial !important;background:rgba(0,0,0,.78);display:none;position:fixed;height:100%;width:100%;top:0;bottom:0;left:0;right:0;z-index:999999999}.howl-iconpicker-middle{box-sizing: initial !important;display:table-cell;vertical-align:middle}.howl-iconpicker-close{box-sizing: initial !important;background:#e83131;color:#fff;padding:10px;text-transform:uppercase;font-size:14px;letter-spacing:1px;text-align:center;width:242px;margin:0 auto;cursor:pointer}.howl-iconpicker-close:hover{box-sizing: initial !important;background:#e62323}.howl-iconpicker{box-sizing: initial !important;border:1px solid #ccc;background:#efefef;width:260px;margin:0 auto;//display:none;position:relative}.howl-iconpicker:active,.howl-iconpicker:focus,.howl-iconpicker:hover{box-sizing: initial !important;display:block!important}.howl-iconpicker .geticonval .fa{box-sizing: initial !important;font-size:28px;margin-right:10px;padding-bottom:10px}.howl-iconpicker .geticonval{box-sizing: initial !important;box-sizing: initial !important;background:#fcfcfc;border:1px solid #ccc;padding:10px;border-radius:3px;margin:5px;width:28px;height:28px;overflow:hidden;float:left}.howl-iconpicker .geticonval:hover{box-sizing: initial !important;background:#efefef;cursor:pointer}.howl-iconpicker .geticonval:active{box-sizing: initial !important;background:#ccc}.srchicons{box-sizing: initial !important;margin:5px 5px 60px;border:1px solid #ccc;padding:10px;border-radius:3px;width:225px;position:absolute;display:block}.iconsholder{box-sizing: initial !important;height:300px;overflow:auto;margin-top:60px}.selectedicon{box-sizing: initial !important;background:#f55e4f!important;border-color:#f55e4f!important;color:#fff}

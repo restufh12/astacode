@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
+use App\Http\Requests\ServiceRequest;
 
 class ServiceController extends Controller
 {
@@ -13,7 +15,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.services.index');
+        $services = Service::all();
+        return view('admin.pages.services.index')->with([
+            'services' => $services
+        ]);
     }
 
     /**
@@ -23,7 +28,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.services.create');
     }
 
     /**
@@ -32,9 +37,12 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Service::create($data);
+        return redirect()->route('services.index');
     }
 
     /**
@@ -79,6 +87,8 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $service = Service::findOrFail($id);
+        $service->delete();
+        return redirect()->route('services.index');
     }
 }

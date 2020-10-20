@@ -1840,3 +1840,12 @@ section {
     padding-top: 4px;
   }
 }
+/*Custom*/
+.no-service{
+  width: 100%;
+  text-align: center;
+}
+
+.width100{
+  width: 100% !important;
+}
