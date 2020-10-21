@@ -2508,4 +2508,8 @@ footer.site-footer {
 /*Custom*/
 .icon-upload-show{
   font-size: 30px;
+  color:#007bff;
+}
+.card-container{
+  padding: 20px;
 }

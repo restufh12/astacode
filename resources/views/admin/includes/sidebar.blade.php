@@ -34,7 +34,7 @@
                     <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-rss-square"></i>News</a>
                 </li>
                 <li>
-                    <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-tags"></i>FAQ</a>
+                    <a href="{{ route('faqs.index') }}"> <i class="menu-icon fa fa-tags"></i>FAQ</a>
                 </li>
             </ul>
         </div>

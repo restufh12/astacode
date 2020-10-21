@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Service;
-use App\Http\Requests\ServiceRequest;
+use App\Models\Faq;
+use App\Http\Requests\FaqRequest;
 
-class ServiceController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $faqs = Faq::all();
 
-        return view('admin.pages.services.index')->with([
-            'services' => $services
+        return view('admin.pages.faqs.index')->with([
+            'faqs' => $faqs
         ]);
     }
 
@@ -29,7 +29,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.services.create');
+        return view('admin.pages.faqs.create');
     }
 
     /**
@@ -38,23 +38,23 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServiceRequest $request)
+    public function store(FaqRequest $request)
     {
         $data = $request->all();
 
-        if(Service::create($data)){
+        if(Faq::create($data)){
             $notification = array(
-                'message' => 'Add service successful', 
+                'message' => 'Add FAQ successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Add service failed', 
+                'message' => 'Add FAQ failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('services.index')->with($notification);
+        return redirect()->route('faqs.index')->with($notification);
     }
 
     /**
@@ -76,10 +76,10 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        $service = Service::findOrFail($id);
+        $faq = Faq::findOrFail($id);
         
-        return view('admin.pages.services.edit')->with([
-            'service' => $service
+        return view('admin.pages.faqs.edit')->with([
+            'faq' => $faq
         ]);
     }
 
@@ -90,24 +90,24 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data    = $request->all();
-        $service = Service::findOrFail($id);
+        $data = $request->all();
+        $faq  = Faq::findOrFail($id);
         
-        if($service->update($data)){
+        if($faq->update($data)){
             $notification = array(
-                'message' => 'Update service successful', 
+                'message' => 'Update FAQ successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Update service failed', 
+                'message' => 'Update FAQ failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('services.index')->with($notification);
+        return redirect()->route('faqs.index')->with($notification);
     }
 
     /**
@@ -118,19 +118,19 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        $service = Service::findOrFail($id);
-        if($service->delete()){
+        $faq = Faq::findOrFail($id);
+        if($faq->delete()){
             $notification = array(
-                'message' => 'Delete service successful', 
+                'message' => 'Delete FAQ successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Delete service failed', 
+                'message' => 'Delete FAQ failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('services.index')->with($notification);
+        return redirect()->route('faqs.index')->with($notification);
     }
 }

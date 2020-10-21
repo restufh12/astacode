@@ -16,6 +16,7 @@ Route::get('/dashboard','admin\DashboardController@index')->name('dashboard');
 Route::get('/login','admin\LoginController@index');
 Auth::routes(['register' => false]);
 Route::resource('services', 'ServiceController');
+Route::resource('faqs', 'FaqController');
 
 // FRONTEND
 Route::get('/', 'HomeController@index');
