@@ -1849,3 +1849,6 @@ section {
 .width100{
   width: 100% !important;
 }
+.custom-h-250{
+  height: 250px !important;
+}

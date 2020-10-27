@@ -727,6 +727,13 @@
             }
         });
         // Bar Chart #flotBarChart End
+
     });
+
+    // NOTIFICATION
+    @if(!empty($successMsg))
+        toastr.options.positionClass = 'toast-bottom-right';
+        toastr.success("{{ $successMsg }}");
+    @endif
 </script>
 @endpush

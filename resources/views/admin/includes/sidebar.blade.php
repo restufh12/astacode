@@ -16,7 +16,7 @@
                     <a href="{{ route('services.index') }}"> <i class="menu-icon fa fa fa-bookmark-o"></i>Services</a>
                 </li>
                 <li>
-                    <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-users"></i>Teams</a>
+                    <a href="{{ route('teams.index') }}"> <i class="menu-icon fa fa-users"></i>Teams</a>
                 </li>
                 <li>
                     <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-list"></i>Products</a>

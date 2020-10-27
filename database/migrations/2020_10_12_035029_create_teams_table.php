@@ -18,10 +18,10 @@ class CreateTeamsTable extends Migration
             $table->string('name', 255);
             $table->string('position', 255);
             $table->text('notes');
-            $table->string('link_twitter', 255);
-            $table->string('link_instagram', 255);
-            $table->string('link_facebook', 255);
-            $table->string('link_linkedin', 255);
+            $table->string('link_twitter', 255)->nullable();
+            $table->string('link_instagram', 255)->nullable();
+            $table->string('link_facebook', 255)->nullable();
+            $table->string('link_linkedin', 255)->nullable();
             $table->string('photo', 255);
 
             $table->softDeletes();

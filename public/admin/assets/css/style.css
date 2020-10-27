@@ -2513,3 +2513,24 @@ footer.site-footer {
 .card-container{
   padding: 20px;
 }
+.icon-link{
+  color:#007bff;
+}
+.custom-w-100{
+  width: 100px;
+}
+.custom-w-90{
+  width: 90px;
+}
+.custom-w-50{
+  width: 50px;
+}
+.custom-w-150{
+  width: 150px;
+}
+.custom-h-250{
+  height: 250px !important;
+}
+.icon-social-size{
+  font-size: 22px;
+}

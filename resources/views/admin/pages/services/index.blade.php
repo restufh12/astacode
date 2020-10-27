@@ -27,12 +27,12 @@
 	                            </div>
 	                        </td>
 	                        <td>{{ $service->service_name }}</td>
-	                        <td>{{ nl2br($service->description) }}</td>
+	                        <td>{!! nl2br($service->description) !!}</td>
 	                        <td width="10%">
 	                            <a href="{{ route('services.edit', $service->id) }}" class="btn btn-primary btn-sm">
 		                            <i class="fa fa-pencil"></i>
 		                        </a>
-		                        <form action="{{ route('services.destroy', $service->id) }}" method="post" class="d-inline deletesubmit">
+		                        <form action="{{ route('services.destroy', $service->id) }}" method="post" id="delete_{{$service->id}}" class="d-inline deletesubmit">
     	                            @csrf
     	                            @method('delete')
     	                            <button class="btn btn-danger btn-sm">
@@ -58,6 +58,7 @@
         // CONFIRM DELETE
         $(".deletesubmit").click(function(event) {
             event.preventDefault();
+            var id = this.id;
             $.confirm({
                 title: 'Confirm!',
                 content: 'Are You Sure Want To Delete?',
@@ -67,7 +68,7 @@
                         btnClass: 'btn-red',
                         keys: ['enter'],
                         action: function(){
-                            $(".deletesubmit").submit();
+                            $("#"+id).submit();
                         }
                     },
                     cancel: function () {

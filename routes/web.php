@@ -17,6 +17,7 @@ Route::get('/login','admin\LoginController@index');
 Auth::routes(['register' => false]);
 Route::resource('services', 'ServiceController');
 Route::resource('faqs', 'FaqController');
+Route::resource('teams', 'TeamController');
 
 // FRONTEND
 Route::get('/', 'HomeController@index');

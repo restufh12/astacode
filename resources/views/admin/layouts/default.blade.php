@@ -7,6 +7,10 @@
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Favicons -->
+    <link href="{{ asset('assets/img/favicon/favicon-32x32.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/favicon/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
     <!-- STYLE -->
     @stack('before-style')
     @include('admin.includes.style')

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Service;
-use App\Http\Requests\ServiceRequest;
+use App\Models\Team;
+use App\Http\Requests\TeamRequest;
+use Illuminate\Support\Facades\Storage;
 
-class ServiceController extends Controller
+class TeamController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,10 +25,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $teams = Team::all();
 
-        return view('admin.pages.services.index')->with([
-            'services' => $services
+        return view('admin.pages.teams.index')->with([
+            'teams' => $teams
         ]);
     }
 
@@ -38,7 +39,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.services.create');
+        return view('admin.pages.teams.create');
     }
 
     /**
@@ -47,23 +48,26 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServiceRequest $request)
+    public function store(TeamRequest $request)
     {
         $data = $request->all();
+        $data['photo'] = $request->file('photo')->store(
+            'assets/team', 'public'
+        );
 
-        if(Service::create($data)){
+        if(Team::create($data)){
             $notification = array(
-                'message' => 'Add service successful', 
+                'message' => 'Add team successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Add service failed', 
+                'message' => 'Add team failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('services.index')->with($notification);
+        return redirect()->route('teams.index')->with($notification);
     }
 
     /**
@@ -85,10 +89,10 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        $service = Service::findOrFail($id);
+        $team = Team::findOrFail($id);
         
-        return view('admin.pages.services.edit')->with([
-            'service' => $service
+        return view('admin.pages.teams.edit')->with([
+            'team' => $team
         ]);
     }
 
@@ -99,24 +103,31 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceRequest $request, $id)
+    public function update(TeamRequest $request, $id)
     {
-        $data    = $request->all();
-        $service = Service::findOrFail($id);
+        $data = $request->all();
+        $team = Team::findOrFail($id);
+
+        if($request->file('photo') != ''){
+            $data['photo'] = $request->file('photo')->store(
+                'assets/team', 'public'
+            );
+            Storage::delete('/public/'.$request->hidden_file);
+        } 
         
-        if($service->update($data)){
+        if($team->update($data)){
             $notification = array(
-                'message' => 'Update service successful', 
+                'message' => 'Update team successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Update service failed', 
+                'message' => 'Update team failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('services.index')->with($notification);
+        return redirect()->route('teams.index')->with($notification);
     }
 
     /**
@@ -127,19 +138,19 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        $service = Service::findOrFail($id);
-        if($service->delete()){
+        $team = Team::findOrFail($id);
+        if($team->delete()){
             $notification = array(
-                'message' => 'Delete service successful', 
+                'message' => 'Delete team successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Delete service failed', 
+                'message' => 'Delete team failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('services.index')->with($notification);
+        return redirect()->route('teams.index')->with($notification);
     }
 }

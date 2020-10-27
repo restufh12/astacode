@@ -4,15 +4,17 @@
 	<title>Astacode - Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{ asset('admin/login/images/icons/favicon.ico') }}"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->	
+	<!-- Favicons -->
+  	<link href="{{ asset('assets/img/favicon/favicon-32x32.png') }}" rel="icon">
+  	<link href="{{ asset('assets/img/favicon/apple-touch-icon.png') }}" rel="apple-touch-icon">
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('admin/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('admin/login/fonts/iconic/css/material-design-iconic-font.min.css') }}">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="{{ asset('admin/login/css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('admin/login/css/main.css') }}">
 <!--===============================================================================================-->
