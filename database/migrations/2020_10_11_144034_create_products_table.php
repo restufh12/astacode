@@ -17,8 +17,11 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 255);
             $table->longText('description');
-            $table->double('price', 8, 2);
+            $table->double('price', 10, 2);
             $table->string('UOM');
+            $table->enum('activeYN', ['0', '1'])->default('0');
+            $table->string('currency_code', 255)->default('Rp');
+            $table->enum('best_priceYN', ['0', '1'])->default('0');
             $table->softDeletes();
             $table->timestamps();
         });

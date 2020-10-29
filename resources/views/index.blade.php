@@ -96,29 +96,23 @@
 
         <div class="row" data-aos="zoom-in">
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div>
+          @forelse($clients as $client)
+          @php
+            $photosrc = ( $client->logo == url('/storage') ? asset('admin/images/default.png') : url($client->logo) );
+          @endphp
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+            <a href="{{ $client->url }}" target="_blank"><img src="{{ $photosrc }}" class="img-fluid" alt="{{ $client->name }}"></a>
           </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div>
+          @empty
+            <div class="col-xl-12 col-md-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box no-service">
+                <div class="icon"><i class="fa fa-ban"></i></div>
+                <h4>No Client</h4>
+              </div>
+            </div>
+          @endforelse
 
         </div>
 
@@ -479,56 +473,44 @@
 
         <div class="section-title">
           <h2>Pricing</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>The following are some of the price packages we offer for you. This price can change according to the needs you want.</p>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="box">
-              <h3>Free Plan</h3>
-              <h4><sup>$</sup>0<span>per month</span></h4>
-              <ul>
+          @forelse($products as $product)
+          @php
+            $delaytime = 100 * ($loop->index+1);
+            $price = number_format($product->price,0);
+            if(strpos($price, ',') !== false){
+              $price = substr($price, 0, -4) . 'K';
+            }
+          @endphp
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ $delaytime }}">
+            <div class="box {{ $product->best_priceYN == '1' ? 'featured' : '' }}">
+              <h3>{{ $product->name }}</h3>
+              <h4><sup>{{ $product->currency_code }}</sup>{{ $price }}<span>{{ $product->UOM }}</span></h4>
+
+              {!! $product->description !!}
+
+             {{--  <ul>
                 <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
                 <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
                 <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
                 <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
                 <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
+              </ul> --}}
               <a href="#" class="buy-btn">Get Started</a>
             </div>
           </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
-            <div class="box featured">
-              <h3>Business Plan</h3>
-              <h4><sup>$</sup>29<span>per month</span></h4>
-              <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-              </ul>
-              <a href="#" class="buy-btn">Get Started</a>
+          @empty
+            <div class="col-xl-12 col-md-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box no-service">
+                <div class="icon"><i class="fa fa-ban"></i></div>
+                <h4>No Product</h4>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <h3>Developer Plan</h3>
-              <h4><sup>$</sup>49<span>per month</span></h4>
-              <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-              </ul>
-              <a href="#" class="buy-btn">Get Started</a>
-            </div>
-          </div>
-
+          @endforelse
         </div>
 
       </div>

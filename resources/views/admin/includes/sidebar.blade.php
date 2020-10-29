@@ -19,19 +19,19 @@
                     <a href="{{ route('teams.index') }}"> <i class="menu-icon fa fa-users"></i>Teams</a>
                 </li>
                 <li>
-                    <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-list"></i>Products</a>
+                    <a href="{{ route('products.index') }}"> <i class="menu-icon fa fa-list"></i>Products</a>
                 </li>
                 <li>
-                    <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-archive"></i>Portfolio</a>
+                    <a href="{{ url('portfolios.index') }}"> <i class="menu-icon fa fa-archive"></i>Portfolio</a>
                 </li>
                 <li>
-                    <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-star"></i>Clients</a>
+                    <a href="{{ route('clients.index') }}"> <i class="menu-icon fa fa-star"></i>Clients</a>
                 </li>
                 <li>
-                    <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-comment"></i>Testimonials</a>
+                    <a href="{{ url('testimonials.index') }}"> <i class="menu-icon fa fa-comment"></i>Testimonials</a>
                 </li>
                 <li>
-                    <a href="{{ url('products.create') }}"> <i class="menu-icon fa fa-rss-square"></i>News</a>
+                    <a href="{{ url('news.index') }}"> <i class="menu-icon fa fa-rss-square"></i>News</a>
                 </li>
                 <li>
                     <a href="{{ route('faqs.index') }}"> <i class="menu-icon fa fa-tags"></i>FAQ</a>

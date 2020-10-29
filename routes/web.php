@@ -12,12 +12,14 @@
 */
 
 // BACKEND
-Route::get('/dashboard','admin\DashboardController@index')->name('dashboard');
-Route::get('/login','admin\LoginController@index');
+Route::get('/dashboard','Admin\DashboardController@index')->name('dashboard');
+Route::get('/login','Admin\LoginController@index');
 Auth::routes(['register' => false]);
-Route::resource('services', 'ServiceController');
-Route::resource('faqs', 'FaqController');
-Route::resource('teams', 'TeamController');
+Route::resource('services', 'Admin\ServiceController');
+Route::resource('faqs', 'Admin\FaqController');
+Route::resource('teams', 'Admin\TeamController');
+Route::resource('clients', 'Admin\ClientController');
+Route::resource('products', 'Admin\ProductController');
 
 // FRONTEND
 Route::get('/', 'HomeController@index');

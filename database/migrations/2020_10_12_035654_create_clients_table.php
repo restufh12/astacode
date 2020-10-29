@@ -17,7 +17,8 @@ class CreateClientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 255);
             $table->string('logo', 255);
-            $table->longText('description');
+            $table->longText('description')->nullable();
+            $table->string('url', 255)->nullable();
             
             $table->softDeletes();
             $table->timestamps();
