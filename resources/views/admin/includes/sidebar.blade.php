@@ -10,6 +10,9 @@
                 <li>
                     <a href="{{ url('backend/companysetting') }}"> <i class="menu-icon fa fa-cogs"></i>Company Setting</a>
                 </li>
+                <li>
+                    <a href="{{ url('backend/companysetting') }}"> <i class="menu-icon fa fa-cogs"></i>Header Setting</a>
+                </li>
 
                 <li class="menu-title">DATA MASTER</li>
                 <li>
@@ -22,7 +25,10 @@
                     <a href="{{ route('products.index') }}"> <i class="menu-icon fa fa-list"></i>Products</a>
                 </li>
                 <li>
-                    <a href="{{ url('portfolios.index') }}"> <i class="menu-icon fa fa-archive"></i>Portfolio</a>
+                    <a href="{{ route('portfolios.index') }}"> <i class="menu-icon fa fa-archive"></i>Portfolio</a>
+                </li>
+                <li>
+                    <a href="{{ route('portfolio-galleries.index') }}"> <i class="menu-icon fa fa-image"></i>Portfolio Gallery</a>
                 </li>
                 <li>
                     <a href="{{ route('clients.index') }}"> <i class="menu-icon fa fa-star"></i>Clients</a>

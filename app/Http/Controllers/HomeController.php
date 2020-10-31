@@ -16,7 +16,7 @@ class HomeController extends Controller
         $faqs     = Faq::all();
         $teams    = Team::all();
         $clients  = Client::all();
-        $products = Product::all();// if activeyn<>'0'
+        $products = Product::all();
 
     	return view('index')->with([
             'services' => $services,

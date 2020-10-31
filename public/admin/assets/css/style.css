@@ -2534,3 +2534,6 @@ footer.site-footer {
 .icon-social-size{
   font-size: 22px;
 }
+input[type="file"] {
+  height: 45px !important;
+}

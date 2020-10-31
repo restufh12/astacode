@@ -21,4 +21,8 @@ class Client extends Model
    	{
    		return url('storage/'.$value);
    	}
+
+    public function client_portfolios(){
+      return $this->hasMany(Portfolio::class, 'client_id');
+    }
 }
