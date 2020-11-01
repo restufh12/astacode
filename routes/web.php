@@ -23,6 +23,7 @@ Route::resource('clients', 'Admin\ClientController');
 Route::resource('products', 'Admin\ProductController');
 Route::resource('portfolios', 'Admin\PortfolioController');
 Route::resource('portfolio-galleries', 'Admin\PortfolioGalleryController');
+Route::resource('testimonials', 'Admin\TestimonialController');
 
 // FRONTEND
 Route::get('/portfolio-details/{id}','HomeController@portfolio_details')->name('portfolio.details');

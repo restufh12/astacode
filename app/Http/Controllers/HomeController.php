@@ -10,6 +10,7 @@ use App\Models\Client;
 use App\Models\Product;
 use App\Models\Portfolio;
 use App\Models\portfolioGallery;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,7 @@ class HomeController extends Controller
         $teams    = Team::all();
         $clients  = Client::all();
         $products = Product::all();
+        $testimonials = Testimonial::all();
 
         $portfolio_categories   =   Portfolio::distinct()->get(['category']);
         $default_galleries      =   portfolioGallery::whereIn('id', function($query){
@@ -38,7 +40,8 @@ class HomeController extends Controller
             'clients' => $clients,
             'products' => $products,
             'portfolio_categories' => $portfolio_categories,
-            'default_galleries' => $default_galleries
+            'default_galleries' => $default_galleries,
+            'testimonials' => $testimonials,
         ]);
     }
 

@@ -420,42 +420,30 @@
         </div>
           <div class="testimonials-one__carousel-outer">
               <div class="testimonials-one__carousel owl-carousel owl-theme">
+                
+                @forelse($testimonials as $testimonial)
+                  @php
+                    $photosrc = ( $testimonial->photo == url('/storage') ? asset('admin/images/default.png') : url($testimonial->photo) );
+                  @endphp
                   <div class="item">
                       <div class="testimonials-one__single">
-                          <div class="testimonials-one__inner">
-                              <p>This is due to their excellent service, competitive pricing and <br> customer
-                                  support. It’s throughly refresing to get such a personal <br> touch. Duis aute
-                                  irure dolor in reprehenderit.</p>
-                              <h3>Shirley Smith</h3>
+                          <div class="testimonials-one__inner testimonial-inner-height">
+                              <p>{!! nl2br($testimonial->notes) !!}</p>
+                              <h3>{{$testimonial->name}}</h3>
                               <span>Our Customers</span>
-                              <img src="assets/images/resources/testi-1-1.png" alt="Awesome Image" />
+                              <img src="{{$photosrc}}" class="img-testimonial" />
                           </div>
                       </div>
                   </div>
+                @empty
                   <div class="item">
                       <div class="testimonials-one__single">
                           <div class="testimonials-one__inner">
-                              <p>This is due to their excellent service, competitive pricing and <br> customer
-                                  support. It’s throughly refresing to get such a personal <br> touch. Duis aute
-                                  irure dolor in reprehenderit.</p>
-                              <h3>Shirley Smith</h3>
-                              <span>Our Customers</span>
-                              <img src="assets/images/resources/testi-1-1.png" alt="Awesome Image" />
+                              <p>No Testimonial</p>
                           </div>
                       </div>
                   </div>
-                  <div class="item">
-                      <div class="testimonials-one__single">
-                          <div class="testimonials-one__inner">
-                              <p>This is due to their excellent service, competitive pricing and <br> customer
-                                  support. It’s throughly refresing to get such a personal <br> touch. Duis aute
-                                  irure dolor in reprehenderit.</p>
-                              <h3>Shirley Smith</h3>
-                              <span>Our Customers</span>
-                              <img src="assets/images/resources/testi-1-1.png" alt="Awesome Image" />
-                          </div>
-                      </div>
-                  </div>
+                @endforelse
               </div>
               <div class="testimonials-one__carousel__shape-one"></div>
               <div class="testimonials-one__carousel__shape-two"></div>
@@ -614,6 +602,14 @@
 @endsection
 
 @push('after-style')
+<style>
+  .img-testimonial{
+    height: 75px !important;
+  }
+  .testimonial-inner-height{
+    height: 326px !important;
+  }
+</style>
 @endpush
 
 @push('after-script')
