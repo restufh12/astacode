@@ -42,6 +42,10 @@
                 <li>
                     <a href="{{ route('faqs.index') }}"> <i class="menu-icon fa fa-tags"></i>FAQ</a>
                 </li>
+                <li class="menu-title">WEB VISITOR</li>
+                <li>
+                    <a href="{{ route('subscribers.index') }}"> <i class="menu-icon fa fa-tags"></i>Subscriber</a>
+                </li>
             </ul>
         </div>
     </nav>
