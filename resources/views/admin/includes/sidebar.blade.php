@@ -37,7 +37,7 @@
                     <a href="{{ route('testimonials.index') }}"> <i class="menu-icon fa fa-comment"></i>Testimonials</a>
                 </li>
                 <li>
-                    <a href="{{ url('news.index') }}"> <i class="menu-icon fa fa-rss-square"></i>News</a>
+                    <a href="{{ route('articles.index') }}"> <i class="menu-icon fa fa-rss-square"></i>Articles</a>
                 </li>
                 <li>
                     <a href="{{ route('faqs.index') }}"> <i class="menu-icon fa fa-tags"></i>FAQ</a>

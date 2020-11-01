@@ -24,7 +24,9 @@ Route::resource('products', 'Admin\ProductController');
 Route::resource('portfolios', 'Admin\PortfolioController');
 Route::resource('portfolio-galleries', 'Admin\PortfolioGalleryController');
 Route::resource('testimonials', 'Admin\TestimonialController');
+Route::resource('articles', 'Admin\ArticleController');
 
 // FRONTEND
 Route::get('/portfolio-details/{id}','HomeController@portfolio_details')->name('portfolio.details');
+Route::get('/article-details/{id}','HomeController@article_details')->name('article.details');
 Route::get('/', 'HomeController@index');

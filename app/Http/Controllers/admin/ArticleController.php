@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Testimonial;
-use App\Http\Requests\TestimonialRequest;
+use App\Models\Article;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Storage;
 
-class TestimonialController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,10 +26,10 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Testimonial::all();
+        $articles = Article::all();
 
-        return view('admin.pages.testimonials.index')->with([
-            'testimonials' => $testimonials
+        return view('admin.pages.articles.index')->with([
+            'articles' => $articles
         ]);
     }
 
@@ -40,7 +40,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.testimonials.create');
+        return view('admin.pages.articles.create');
     }
 
     /**
@@ -49,26 +49,26 @@ class TestimonialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TestimonialRequest $request)
+    public function store(ArticleRequest $request)
     {
         $data = $request->all();
         $data['photo'] = $request->file('photo')->store(
-            'assets/testimonial', 'public'
+            'assets/article', 'public'
         );
 
-        if(Testimonial::create($data)){
+        if(Article::create($data)){
             $notification = array(
-                'message' => 'Add testimonial successful', 
+                'message' => 'Add article successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Add testimonial failed', 
+                'message' => 'Add article failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('testimonials.index')->with($notification);
+        return redirect()->route('articles.index')->with($notification);
     }
 
     /**
@@ -90,10 +90,10 @@ class TestimonialController extends Controller
      */
     public function edit($id)
     {
-        $testimonial = Testimonial::findOrFail($id);
+        $article = Article::findOrFail($id);
         
-        return view('admin.pages.testimonials.edit')->with([
-            'testimonial' => $testimonial
+        return view('admin.pages.articles.edit')->with([
+            'article' => $article
         ]);
     }
 
@@ -104,31 +104,31 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TestimonialRequest $request, $id)
+    public function update(ArticleRequest $request, $id)
     {
         $data = $request->all();
-        $testimonial = Testimonial::findOrFail($id);
+        $article = Article::findOrFail($id);
 
         if($request->file('photo') != ''){
             $data['photo'] = $request->file('photo')->store(
-                'assets/testimonial', 'public'
+                'assets/article', 'public'
             );
             Storage::delete('/public/'.$request->hidden_file);
         } 
         
-        if($testimonial->update($data)){
+        if($article->update($data)){
             $notification = array(
-                'message' => 'Update testimonial successful', 
+                'message' => 'Update article successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Update testimonial failed', 
+                'message' => 'Update article failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('testimonials.index')->with($notification);
+        return redirect()->route('articles.index')->with($notification);
     }
 
     /**
@@ -139,19 +139,19 @@ class TestimonialController extends Controller
      */
     public function destroy($id)
     {
-        $testimonial = Testimonial::findOrFail($id);
-        if($testimonial->delete()){
+        $article = Article::findOrFail($id);
+        if($article->delete()){
             $notification = array(
-                'message' => 'Delete testimonial successful', 
+                'message' => 'Delete article successful', 
                 'alert-type' => 'success'
             );
         } else {
             $notification = array(
-                'message' => 'Delete testimonial failed', 
+                'message' => 'Delete article failed', 
                 'alert-type' => 'error'
             );
         }
 
-        return redirect()->route('testimonials.index')->with($notification);
+        return redirect()->route('articles.index')->with($notification);
     }
 }

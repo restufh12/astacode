@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Portfolio;
 use App\Models\portfolioGallery;
 use App\Models\Testimonial;
+use App\Models\Article;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
         $clients  = Client::all();
         $products = Product::all();
         $testimonials = Testimonial::all();
+        $articles = Article::take(3)->get();
 
         $portfolio_categories   =   Portfolio::distinct()->get(['category']);
         $default_galleries      =   portfolioGallery::whereIn('id', function($query){
@@ -42,6 +44,7 @@ class HomeController extends Controller
             'portfolio_categories' => $portfolio_categories,
             'default_galleries' => $default_galleries,
             'testimonials' => $testimonials,
+            'articles' => $articles,
         ]);
     }
 
@@ -53,6 +56,15 @@ class HomeController extends Controller
         return view('portfolio-details')->with([
             'portfolio' => $portfolio,
             'portfolio_galleries' => $portfolio_galleries
+        ]);
+    }
+
+    public function article_details($id)
+    {
+        $article = Article::findOrFail($id);
+
+        return view('article-details')->with([
+            'article' => $article,
         ]);
     }
 }

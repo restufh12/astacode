@@ -455,7 +455,7 @@
       </div>
     </section><!-- /.End testimonials -->
 
-    <!-- ======= News Section ======= -->
+    <!-- ======= Article Section ======= -->
     <section class="blog-one blog-one__home section-bg" id="news">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
@@ -463,65 +463,36 @@
               <p>The following are some of the price packages we offer for you. This price can change according to the needs you want.</p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-duration="1500ms">
+
+                @forelse($articles as $article)
+                  @php
+                    $photosrc = ( $article->photo == url('/storage') ? asset('admin/images/default.png') : url($article->photo) );
+                  @endphp
+                  <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-duration="1500ms">
                     <div class="blog-one__single">
-                        <div class="blog-one__image">
-                            <img src="assets/images/blog/blog-1-1.jpg" alt="">
-                            <a class="blog-one__more-link" href="#"><i class="fa fa-link"></i></a>
+                        <div class="blog-one__image text-center">
+                            <img src="{{$photosrc}}" class="img-articles">
+                            <a class="blog-one__more-link" href="{{ route('article.details', $article->id) }}"><i class="fa fa-link"></i></a>
                         </div>
                         <div class="blog-one__content">
                             <ul class="list-unstyled blog-one__meta">
-                                <li><a href="#">22 Oct, 2019</a></li>
-                                <li><a href="#">2 Comments</a></li>
+                                <li>22 Oct, 2019</li>
                             </ul>
                             <h3 class="blog-one__title">
-                                <a href="#">Pre and post launch mobile app marketing pitfalls to
-                                    avoid</a>
+                                <a href="{{ route('article.details', $article->id) }}">{{$article->title}}</a>
                             </h3>
-                            <a href="#" class="blog-one__link">Read More</a>
+                            <a href="{{ route('article.details', $article->id) }}" class="blog-one__link">Read More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInDown" data-wow-duration="1500ms">
+                @empty
+                  <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp text-center" data-wow-duration="1500ms">
                     <div class="blog-one__single">
-                        <div class="blog-one__image">
-                            <img src="assets/images/blog/blog-1-2.jpg" alt="">
-                            <a class="blog-one__more-link" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="blog-one__content">
-                            <ul class="list-unstyled blog-one__meta">
-                                <li><a href="#">22 Oct, 2019</a></li>
-                                <li><a href="#">2 Comments</a></li>
-                            </ul>
-                            <h3 class="blog-one__title">
-                                <a href="#">It is all exactly as i said, but i don't like it let's
-                                    unpack
-                                    that</a>
-                            </h3>
-                            <a href="#" class="blog-one__link">Read More</a>
-                        </div>
+                        No Article
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-duration="1500ms">
-                    <div class="blog-one__single">
-                        <div class="blog-one__image">
-                            <img src="assets/images/blog/blog-1-3.jpg" alt="">
-                            <a class="blog-one__more-link" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="blog-one__content">
-                            <ul class="list-unstyled blog-one__meta">
-                                <li><a href="#">22 Oct, 2019</a></li>
-                                <li><a href="#">2 Comments</a></li>
-                            </ul>
-                            <h3 class="blog-one__title">
-                                <a href="#">I just wanted to give you a heads-up, or this you feel
-                                    you
-                                    would</a>
-                            </h3>
-                            <a href="#" class="blog-one__link">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
+
             </div>
         </div>
     </section>
@@ -608,6 +579,10 @@
   }
   .testimonial-inner-height{
     height: 326px !important;
+  }
+  .img-articles{
+    height: 125px !important;
+    width: auto !important;
   }
 </style>
 @endpush

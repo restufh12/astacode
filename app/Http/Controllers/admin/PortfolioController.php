@@ -55,7 +55,7 @@ class PortfolioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PortfolioRequest $request)
     {
         $data = $request->all();
 
@@ -111,7 +111,7 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PortfolioRequest $request, $id)
     {
         $data = $request->all();
         $portfolio = Portfolio::findOrFail($id);

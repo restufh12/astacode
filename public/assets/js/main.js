@@ -173,6 +173,20 @@
       aos_init();
     });
 
+    var articleIsotope = $('.article-container').isotope({
+      itemSelector: '.article-item'
+    });
+
+    $('#article-flters li').on('click', function() {
+      $("#article-flters li").removeClass('filter-active');
+      $(this).addClass('filter-active');
+
+      articleIsotope.isotope({
+        filter: $(this).data('filter')
+      });
+      aos_init();
+    });
+
     // Initiate venobox (lightbox feature used in portofilo)
     $(document).ready(function() {
       $('.venobox').venobox({
@@ -183,6 +197,14 @@
 
   // Portfolio details carousel
   $(".portfolio-details-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    items: 1
+  });
+
+  // Article details carousel
+  $(".article-details-carousel").owlCarousel({
     autoplay: true,
     dots: true,
     loop: true,
