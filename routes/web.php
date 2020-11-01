@@ -25,4 +25,5 @@ Route::resource('portfolios', 'Admin\PortfolioController');
 Route::resource('portfolio-galleries', 'Admin\PortfolioGalleryController');
 
 // FRONTEND
+Route::get('/portfolio-details/{id}','HomeController@portfolio_details')->name('portfolio.details');
 Route::get('/', 'HomeController@index');

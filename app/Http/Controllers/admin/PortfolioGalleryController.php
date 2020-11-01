@@ -62,7 +62,16 @@ class PortfolioGalleryController extends Controller
             'assets/portfolio', 'public'
         );
 
-        if(PortfolioGallery::create($data)){
+        $portfolio_gallery = PortfolioGallery::create($data);
+        if($portfolio_gallery){
+            // UPDATE DEFAULT PHOTO
+            $id           = $portfolio_gallery->id;
+            $portfolio_id = $portfolio_gallery->portfolio_id;
+
+            if($data['defaultYN']=="1"){
+                PortfolioGallery::where('portfolio_id', $portfolio_id)->where('id', '!=' , $id)->update(['defaultYN' => '0']);
+            }
+
             $notification = array(
                 'message' => 'Add portfolio gallery successful', 
                 'alert-type' => 'success'
@@ -125,6 +134,15 @@ class PortfolioGalleryController extends Controller
         } 
         
         if($portfolio_gallery->update($data)){
+
+            // UPDATE DEFAULT PHOTO
+            $id           = $portfolio_gallery->id;
+            $portfolio_id = $portfolio_gallery->portfolio_id;
+
+            if($data['defaultYN']=="1"){
+                PortfolioGallery::where('portfolio_id', $portfolio_id)->where('id', '!=' , $id)->update(['defaultYN' => '0']);
+            }
+
             $notification = array(
                 'message' => 'Update portfolio gallery successful', 
                 'alert-type' => 'success'

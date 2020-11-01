@@ -1,96 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.frontend')
+@section('title', 'Astacode')
+@section('class-header', '')
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Astacode</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon/favicon-32x32.png') }}" rel="icon">
-  <link href="{{ asset('assets/img/favicon/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
-  {{-- Font Awesome --}}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-
-  <!-- =======================================================
-  * Template Name: Arsha - v2.2.1
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
-
-      <!-- <h1 class="logo mr-auto"><a href="{{ url('/') }}">Arsha</a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="{{ url('/') }}" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="{{ url('/') }}">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li class="d-block d-sm-none"><a href="{{ url('/login') }}">Login</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-      <a href="{{ url('/login') }}" class="get-started-btn scrollto d-none d-sm-block">Login</a>
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Better Solutions For Your Business</h1>
-          <h2>We are team of talanted designers making websites with Bootstrap</h2>
-          <div class="d-lg-flex">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+@section('hero-section')
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+              <h1>Better Solutions For Your Business</h1>
+              <h2>We are team of talanted designers making websites with Bootstrap</h2>
+              <div class="d-lg-flex">
+                <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+              <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+            </div>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
-        </div>
-      </div>
-    </div>
+    </section>
+@endsection
 
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= Cliens Section ======= -->
+@section('content-main')
+	  <!-- ======= Cliens Section ======= -->
     <section id="cliens" class="cliens section-bg">
       <div class="container">
 
@@ -317,105 +250,30 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
+
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
           <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-app">App</li>
-          <li data-filter=".filter-card">Card</li>
-          <li data-filter=".filter-web">Web</li>
+          @foreach($portfolio_categories as $portfolio_category)
+            <li data-filter=".{{cleanString($portfolio_category->category)}}">{{$portfolio_category->category}}</li>
+          @endforeach
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          @forelse($default_galleries as $default_gallery)
+            <div class="col-lg-4 col-md-6 portfolio-item {{cleanString($default_gallery->portfolio->category)}}">
+              <div class="portfolio-img"><img src="{{$default_gallery->photo}}" class="img-fluid"></div>
+              <div class="portfolio-info">
+                <h4>{{$default_gallery->portfolio->project_name}}</h4>
+                <p>{{$default_gallery->portfolio->category}}</p>
+                <a href="{{$default_gallery->photo}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{$default_gallery->portfolio->project_name}}"><i class="fa fa-image"></i></a>
+                <a href="{{ route('portfolio.details', $default_gallery->portfolio->id) }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          @empty
+            <div class="col-lg-12 col-md-12 portfolio-item text-center">
+              Empty Portfolio
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
+          @endforelse
         </div>
 
       </div>
@@ -513,6 +371,7 @@
 
         <div class="section-title">
           <h2>Frequently Asked Questions</h2>
+          <p>The following are some of the price packages we offer for you. This price can change according to the needs you want.</p>
         </div>
 
         <div class="faq-list">
@@ -551,6 +410,133 @@
 
       </div>
     </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Testimonial Section ======= -->
+    <section class="testimonials-one" id="testimonials">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>TESTIMONIAL</h2>
+          <p>The following are some of the price packages we offer for you. This price can change according to the needs you want.</p>
+        </div>
+          <div class="testimonials-one__carousel-outer">
+              <div class="testimonials-one__carousel owl-carousel owl-theme">
+                  <div class="item">
+                      <div class="testimonials-one__single">
+                          <div class="testimonials-one__inner">
+                              <p>This is due to their excellent service, competitive pricing and <br> customer
+                                  support. It’s throughly refresing to get such a personal <br> touch. Duis aute
+                                  irure dolor in reprehenderit.</p>
+                              <h3>Shirley Smith</h3>
+                              <span>Our Customers</span>
+                              <img src="assets/images/resources/testi-1-1.png" alt="Awesome Image" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="testimonials-one__single">
+                          <div class="testimonials-one__inner">
+                              <p>This is due to their excellent service, competitive pricing and <br> customer
+                                  support. It’s throughly refresing to get such a personal <br> touch. Duis aute
+                                  irure dolor in reprehenderit.</p>
+                              <h3>Shirley Smith</h3>
+                              <span>Our Customers</span>
+                              <img src="assets/images/resources/testi-1-1.png" alt="Awesome Image" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="item">
+                      <div class="testimonials-one__single">
+                          <div class="testimonials-one__inner">
+                              <p>This is due to their excellent service, competitive pricing and <br> customer
+                                  support. It’s throughly refresing to get such a personal <br> touch. Duis aute
+                                  irure dolor in reprehenderit.</p>
+                              <h3>Shirley Smith</h3>
+                              <span>Our Customers</span>
+                              <img src="assets/images/resources/testi-1-1.png" alt="Awesome Image" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="testimonials-one__carousel__shape-one"></div>
+              <div class="testimonials-one__carousel__shape-two"></div>
+              <div class="testimonials-one__nav">
+                  <a class="testimonials-one__nav-left" href="#"><i class="fa fa-arrow-left"></i></a>
+                  <a class="testimonials-one__nav-right" href="#"><i class="fa fa-arrow-right"></i></a>
+              </div>
+          </div>
+      </div>
+    </section><!-- /.End testimonials -->
+
+    <!-- ======= News Section ======= -->
+    <section class="blog-one blog-one__home section-bg" id="news">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+              <h2>NEWS AND ARTICLE</h2>
+              <p>The following are some of the price packages we offer for you. This price can change according to the needs you want.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-duration="1500ms">
+                    <div class="blog-one__single">
+                        <div class="blog-one__image">
+                            <img src="assets/images/blog/blog-1-1.jpg" alt="">
+                            <a class="blog-one__more-link" href="#"><i class="fa fa-link"></i></a>
+                        </div>
+                        <div class="blog-one__content">
+                            <ul class="list-unstyled blog-one__meta">
+                                <li><a href="#">22 Oct, 2019</a></li>
+                                <li><a href="#">2 Comments</a></li>
+                            </ul>
+                            <h3 class="blog-one__title">
+                                <a href="#">Pre and post launch mobile app marketing pitfalls to
+                                    avoid</a>
+                            </h3>
+                            <a href="#" class="blog-one__link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInDown" data-wow-duration="1500ms">
+                    <div class="blog-one__single">
+                        <div class="blog-one__image">
+                            <img src="assets/images/blog/blog-1-2.jpg" alt="">
+                            <a class="blog-one__more-link" href="#"><i class="fa fa-link"></i></a>
+                        </div>
+                        <div class="blog-one__content">
+                            <ul class="list-unstyled blog-one__meta">
+                                <li><a href="#">22 Oct, 2019</a></li>
+                                <li><a href="#">2 Comments</a></li>
+                            </ul>
+                            <h3 class="blog-one__title">
+                                <a href="#">It is all exactly as i said, but i don't like it let's
+                                    unpack
+                                    that</a>
+                            </h3>
+                            <a href="#" class="blog-one__link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-duration="1500ms">
+                    <div class="blog-one__single">
+                        <div class="blog-one__image">
+                            <img src="assets/images/blog/blog-1-3.jpg" alt="">
+                            <a class="blog-one__more-link" href="#"><i class="fa fa-link"></i></a>
+                        </div>
+                        <div class="blog-one__content">
+                            <ul class="list-unstyled blog-one__meta">
+                                <li><a href="#">22 Oct, 2019</a></li>
+                                <li><a href="#">2 Comments</a></li>
+                            </ul>
+                            <h3 class="blog-one__title">
+                                <a href="#">I just wanted to give you a heads-up, or this you feel
+                                    you
+                                    would</a>
+                            </h3>
+                            <a href="#" class="blog-one__link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -625,110 +611,35 @@
 
       </div>
     </section><!-- End Contact Section -->
+@endsection
 
-  </main><!-- End #main -->
+@push('after-style')
+@endpush
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+@push('after-script')
+<script>
+  if ($('.testimonials-one__carousel').length) {
+        $('.testimonials-one__carousel').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            autoWidth: false,
+            autoplay: true,
+            smartSpeed: 700,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            items: 1
+        });
 
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Arsha</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{{ asset('assets/js/main.js') }}"></script>
-
-</body>
-
-</html>
+        $('.testimonials-one__nav-left').on('click', function() {
+            $('.testimonials-one__carousel').trigger('next.owl.carousel');
+            return false;
+        });
+        $('.testimonials-one__nav-right').on('click', function() {
+            $('.testimonials-one__carousel').trigger('prev.owl.carousel');
+            return false;
+        });
+    }
+</script>
+@endpush
