@@ -15,6 +15,7 @@ use App\Models\Article;
 use App\Models\Setting;
 use App\Models\Header;
 use App\Models\Skill;
+use App\Models\Reason;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
@@ -42,6 +43,7 @@ class HomeController extends Controller
         $testimonials = Testimonial::all();
         $articles     = Article::take(3)->get();
         $skills       = Skill::all();
+        $reasons      = Reason::all();
 
         $portfolio_categories   =   Portfolio::distinct()->get(['category']);
         $default_galleries      =   portfolioGallery::whereIn('id', function($query){
@@ -62,7 +64,7 @@ class HomeController extends Controller
             'testimonials' => $testimonials,
             'articles' => $articles,
             'skills' => $skills,
-            'skills' => $skills,
+            'reasons' => $reasons,
         ]);
     }
 

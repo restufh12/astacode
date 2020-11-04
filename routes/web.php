@@ -33,6 +33,7 @@ Route::resource('testimonials', 'Admin\TestimonialController');
 Route::resource('articles', 'Admin\ArticleController');
 Route::resource('skills', 'Admin\SkillController');
 Route::resource('subscribers', 'Admin\SubscriberController');
+Route::resource('reasons', 'Admin\ReasonController');
 
 // FRONTEND
 Route::get('/portfolio-details/{id}','HomeController@portfolio_details')->name('portfolio.details');

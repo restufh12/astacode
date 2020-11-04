@@ -43,6 +43,9 @@
                     <a href="{{ route('articles.index') }}"> <i class="menu-icon fa fa-rss-square"></i>Articles</a>
                 </li>
                 <li>
+                    <a href="{{ route('reasons.index') }}"> <i class="menu-icon fa fa-star"></i>Why Us</a>
+                </li>
+                <li>
                     <a href="{{ route('faqs.index') }}"> <i class="menu-icon fa fa-tags"></i>FAQ</a>
                 </li>
                 <li class="menu-title">WEB VISITOR</li>
