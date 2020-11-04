@@ -2,9 +2,7 @@
 <header id="header" class="fixed-top @yield('class-header')">
   <div class="container d-flex align-items-center">
 
-    <!-- <h1 class="logo mr-auto"><a href="{{ url('/') }}">Arsha</a></h1> -->
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <a href="{{ url('/') }}" class="logo mr-auto"><img src="{{asset('assets/img/logo.png')}}" alt="" class="img-fluid"></a>
+    <a href="{{ url('/') }}" class="logo mr-auto"><img src="{{ $company_setting->company_logo }}" alt="" class="img-fluid"></a>
 
     <nav class="nav-menu d-none d-lg-block">
       <ul>

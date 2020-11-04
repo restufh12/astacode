@@ -12,19 +12,36 @@ use App\Models\Portfolio;
 use App\Models\portfolioGallery;
 use App\Models\Testimonial;
 use App\Models\Article;
+use App\Models\Setting;
+use App\Models\Header;
+use App\Models\Skill;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
+    private $company_setting;
+    private $header_setting;
+    private $services;
+
+    public function __construct()
+    {
+        $this->company_setting = Setting::orderBy('id', 'desc')->first();
+        $this->header_setting  = Header::orderBy('id', 'desc')->first();
+        $this->services        = Service::all();
+        View::share('company_setting', $this->company_setting);
+        View::share('header_setting', $this->header_setting);
+        View::share('services', $this->services);
+    }
 
     public function index()
     {   
-        $services = Service::all();
-        $faqs     = Faq::all();
-        $teams    = Team::all();
-        $clients  = Client::all();
-        $products = Product::all();
+        $faqs         = Faq::all();
+        $teams        = Team::all();
+        $clients      = Client::all();
+        $products     = Product::all();
         $testimonials = Testimonial::all();
-        $articles = Article::take(3)->get();
+        $articles     = Article::take(3)->get();
+        $skills       = Skill::all();
 
         $portfolio_categories   =   Portfolio::distinct()->get(['category']);
         $default_galleries      =   portfolioGallery::whereIn('id', function($query){
@@ -36,7 +53,6 @@ class HomeController extends Controller
                                     })->get();
 
     	return view('index')->with([
-            'services' => $services,
             'faqs' => $faqs,
             'teams' => $teams,
             'clients' => $clients,
@@ -45,6 +61,8 @@ class HomeController extends Controller
             'default_galleries' => $default_galleries,
             'testimonials' => $testimonials,
             'articles' => $articles,
+            'skills' => $skills,
+            'skills' => $skills,
         ]);
     }
 
@@ -56,6 +74,14 @@ class HomeController extends Controller
         return view('portfolio-details')->with([
             'portfolio' => $portfolio,
             'portfolio_galleries' => $portfolio_galleries
+        ]);
+    }
+
+    public function article(){
+        $articles = Article::paginate(9);
+
+        return view('article')->with([
+            'articles' => $articles,
         ]);
     }
 

@@ -8,10 +8,10 @@
                 </li>
                 <li class="menu-title">SETTING</li>
                 <li>
-                    <a href="{{ url('backend/companysetting') }}"> <i class="menu-icon fa fa-cogs"></i>Company Setting</a>
+                    <a href="{{ route('company.setting') }}"> <i class="menu-icon fa fa-cogs"></i>Company Setting</a>
                 </li>
                 <li>
-                    <a href="{{ url('backend/companysetting') }}"> <i class="menu-icon fa fa-cogs"></i>Header Setting</a>
+                    <a href="{{ route('header.setting') }}"> <i class="menu-icon fa fa-cogs"></i>Header Setting</a>
                 </li>
 
                 <li class="menu-title">DATA MASTER</li>
@@ -20,6 +20,9 @@
                 </li>
                 <li>
                     <a href="{{ route('teams.index') }}"> <i class="menu-icon fa fa-users"></i>Teams</a>
+                </li>
+                <li>
+                    <a href="{{ route('skills.index') }}"> <i class="menu-icon fa fa-gamepad"></i>Skills</a>
                 </li>
                 <li>
                     <a href="{{ route('products.index') }}"> <i class="menu-icon fa fa-list"></i>Products</a>

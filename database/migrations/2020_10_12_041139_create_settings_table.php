@@ -20,17 +20,19 @@ class CreateSettingsTable extends Migration
             $table->longText('company_address');
             $table->string('company_email', 255);
             $table->string('company_tel', 255);
-            $table->double('longitude');
-            $table->double('latitude');
-            $table->string('link_twitter', 255);
-            $table->string('link_instagram', 255);
-            $table->string('link_facebook', 255);
-            $table->string('link_linkedin', 255);
-            $table->string('link_skype', 255);
+            $table->double('longitude')->nullable();
+            $table->double('latitude')->nullable();
+            $table->string('company_wa', 255)->nullable();
+            $table->string('link_twitter', 255)->nullable();
+            $table->string('link_instagram', 255)->nullable();
+            $table->string('link_facebook', 255)->nullable();
+            $table->string('link_linkedin', 255)->nullable();
+            $table->string('link_skype', 255)->nullable();
             $table->text('slogan');
             $table->text('sub_slogan');
-            $table->text('video_url');
-            $table->longText('about_us');
+            $table->text('video_url')->nullable();;
+            $table->longText('about_us')->nullable();;
+            $table->longText('google_maps_iframe')->nullable();
 
             $table->timestamps();
         });
