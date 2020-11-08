@@ -40,3 +40,5 @@ Route::get('/portfolio-details/{id}','HomeController@portfolio_details')->name('
 Route::get('/article-details/{id}','HomeController@article_details')->name('article.details');
 Route::get('/article','HomeController@article')->name('article.index');
 Route::get('/', 'HomeController@index');
+Route::post('/send-mail-contact', 'HomeController@send_mail_contact')->name('send.mail.contact');
+Route::post('/subscribe', 'Admin\SubscriberController@subscribe')->name('subscribe');

@@ -222,4 +222,43 @@
     aos_init();
   });
 
+  $('form.form-subscribe').submit(function(e) {
+    e.preventDefault();
+    var this_form = $(this);
+    var action = $(this).attr('action');
+    fn_subscribe(this_form,action,this_form.serialize());
+    return true;
+  });
+
+  function fn_subscribe(this_form, action, data) {
+    $.ajax({
+      type: "POST",
+      url: action,
+      data: data,
+      timeout: 40000
+    }).done( function(msg){
+      if (msg.trim() == '1') {
+        this_form.find("input[name=email]").val('');
+        Swal.fire({
+          title: '<i style="font-size:70px;color:#2778c4;" class="fa fa-thumbs-up"></i>',
+          html:
+            '<b>Thank you</b> for subscribing!',
+          focusConfirm: false,
+        });
+      } else if(msg.trim() == '2') {
+        this_form.find("input[name=email]").val('');
+        Swal.fire({
+          title: '<i style="font-size:70px;color:#2778c4;" class="fa fa-thumbs-up"></i>',
+          html:
+            "You're already <b>subscribed</b>!",
+          focusConfirm: false,
+        });
+      } else {
+        alert("Form submission failed!");
+      }
+    }).fail( function(data){
+      alert("Form submission failed!");
+    });
+  }
+
 })(jQuery);

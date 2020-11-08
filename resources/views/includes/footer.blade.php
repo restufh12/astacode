@@ -7,8 +7,9 @@
         <div class="col-lg-6">
           <h4>Join Our Newsletter</h4>
           <p>{{ $header_setting->join_our_newsletter }}</p>
-          <form action="" method="post">
-            <input type="email" name="email"><input type="submit" value="Subscribe">
+          <form action="{{ route('subscribe') }}" method="post" class="form-subscribe">
+            @csrf
+            <input type="email" name="email" required><input type="submit" value="Subscribe">
           </form>
         </div>
       </div>

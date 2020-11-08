@@ -1451,6 +1451,7 @@ section {
   text-align: center;
   padding: 15px;
   font-weight: 600;
+  border-radius: 10px;
 }
 
 .contact .php-email-form .loading {

@@ -94,6 +94,33 @@ class SubscriberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subscriber = Subscriber::findOrFail($id);
+        if($subscriber->delete()){
+            $notification = array(
+                'message' => 'Delete subscriber successful', 
+                'alert-type' => 'success'
+            );
+        } else {
+            $notification = array(
+                'message' => 'Delete subscriber failed', 
+                'alert-type' => 'error'
+            );
+        }
+
+        return redirect()->route('subscribers.index')->with($notification);
+    }
+
+    public function subscribe(Request $request){
+        $data = $request->all();
+        $subscriber = Subscriber::where('email', '=', $request->email)->first();
+        if ($subscriber === null) {
+           if(Subscriber::create($data)){
+                return "1";
+           } else {
+                return "0";
+           }
+        } else {
+            return "2";
+        }
     }
 }

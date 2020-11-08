@@ -16,7 +16,9 @@ use App\Models\Setting;
 use App\Models\Header;
 use App\Models\Skill;
 use App\Models\Reason;
+use App\Models\Subscriber;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -94,5 +96,28 @@ class HomeController extends Controller
         return view('article-details')->with([
             'article' => $article,
         ]);
+    }
+
+    public function send_mail_contact(Request $request){
+        $data = [
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'bodyMessage'=>$request->message
+        ];
+
+        $request['to'] = "restuf33@gmail.com";
+
+        try {
+            Mail::send('emails.contact-email', $data, function($message) use ($request){
+                $message->from($request->email);
+                $message->to($request->to);
+                $message->subject($request->subject);
+            });
+
+            return 'OK';
+        } catch (Exception $ex) {
+            return "We've got errors! ".$ex->getMessage();
+        }
     }
 }
