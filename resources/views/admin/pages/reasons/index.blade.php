@@ -20,7 +20,7 @@
                 	@foreach($reasons as $reason)
 	                    <tr>
 	                        <td>{{ $loop->index+1 }}</td>
-	                        <td>{!! nl2br($reason->question) !!}</td>
+	                        <td>{!! nl2br($reason->reason) !!}</td>
 	                        <td>{!! nl2br($reason->description) !!}</td>
 	                        <td width="10%">
 	                            <a href="{{ route('reasons.edit', $reason->id) }}" class="btn btn-primary btn-sm">

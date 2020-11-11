@@ -36,7 +36,7 @@
           <h3>Project information</h3>
           <ul>
             <li><strong>Category</strong>: {{$portfolio->category}}</li>
-            <li><strong>Client</strong>: {{$portfolio->client->name}}</li>
+            <li><strong>Client</strong>: {{isset($portfolio->client->name) ? $portfolio->client->name : ''}}</li>
             <li><strong>Project date</strong>: {{ date('d/m/Y', strtotime($portfolio->project_date))}}</li>
             <li><strong>Project URL</strong>: <a href="{{$portfolio->project_url}}">{{$portfolio->project_url}}</a></li>
           </ul>
