@@ -26,7 +26,7 @@
 	                        <td>{{ $loop->index+1 }}</td>
 	                        <td>{{ $portfolio->project_name }}</td>
 	                        <td>{{ $portfolio->category }}</td>
-	                        <td>{{ $portfolio->client->name }}</td>
+	                        <td>{{ isset($portfolio->client->name) ? $portfolio->client->name : ''  }}</td>
 	                        <td>{{ date('d/m/Y', strtotime($portfolio->project_date)) }}</td>
 	                        <td>{{ $portfolio->project_url }}</td>
 	                        <td>{!! nl2br($portfolio->project_desc) !!}</td>

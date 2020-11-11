@@ -24,7 +24,7 @@
                     @endphp
                         <tr>
                             <td>{{ $loop->index+1 }}</td>
-                            <td>{{ $portfolio_gallery->portfolio->project_name }}</td>
+                            <td>{{ isset($portfolio_gallery->portfolio->project_name) ? $portfolio_gallery->portfolio->project_name : ''  }}</td>
                             <td class="custom-w-50"><img src="{{ $photosrc }}" class="img-thumbnail custom-w-50"/></td>
                             <td>{{ ($portfolio_gallery->defaultYN=="1"?"Yes" : "No") }}</td>
                             <td width="10%">

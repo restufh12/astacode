@@ -9,7 +9,7 @@ use App\Models\Team;
 use App\Models\Client;
 use App\Models\Product;
 use App\Models\Portfolio;
-use App\Models\portfolioGallery;
+use App\Models\PortfolioGallery;
 use App\Models\Testimonial;
 use App\Models\Article;
 use App\Models\Setting;
@@ -48,9 +48,9 @@ class HomeController extends Controller
         $reasons      = Reason::all();
 
         $portfolio_categories   =   Portfolio::distinct()->get(['category']);
-        $default_galleries      =   portfolioGallery::whereIn('id', function($query){
+        $default_galleries      =   PortfolioGallery::whereIn('id', function($query){
                                     $query->selectRaw('MAX(id)')
-                                        ->from(with(new portfolioGallery)->getTable())
+                                        ->from(with(new PortfolioGallery)->getTable())
                                         ->where('defaultYN', '1')
                                         ->where('deleted_at', NULL)
                                         ->groupBy('portfolio_id');
@@ -99,6 +99,8 @@ class HomeController extends Controller
     }
 
     public function send_mail_contact(Request $request){
+    	$v_company_setting = Setting::orderBy('id', 'desc')->first();
+
         $data = [
             'name'=>$request->name,
             'email'=>$request->email,
@@ -106,7 +108,7 @@ class HomeController extends Controller
             'bodyMessage'=>$request->message
         ];
 
-        $request['to'] = "restuf33@gmail.com";
+        $request['to'] = $this->company_setting->company_email;
 
         try {
             Mail::send('emails.contact-email', $data, function($message) use ($request){
