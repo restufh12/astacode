@@ -2514,3 +2514,16 @@ section {
   transition: 0.4s;
   border-radius: 50px;
 }
+
+.float-button{
+  position:fixed;
+  width:70px;
+  height:70px;
+  bottom:70px;
+  right:20px;
+  text-align:center;
+}
+
+.my-float-button{
+  margin-top:22px;
+}

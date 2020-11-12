@@ -1,3 +1,9 @@
+{{-- Floating Button --}}
+<a href="https://api.whatsapp.com/send?phone={{$company_setting->company_wa}}&amp;text=Halo,%20Saya%20lihat%20dari%20Website%20Astacode,%20saya%20ingin%20membuat%20website%20untuk..." target="_blank" title="Chat Via Whatsapp">
+  <img src="{{asset('assets/img/whatsapp.png')}}" class="float-button">
+</a>
+
+
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
